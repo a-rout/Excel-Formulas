@@ -1,0 +1,13 @@
+=SUBSTITUTE(SUBSTITUTE(A1,".",""),",",".")
+
+=TEXTJOIN("", TRUE, IF((C2:C33 = "") * (D2:D33 = ""), B2:B33 & ",", ""))
+
+=IF(C2+D2 = 0, "", C2+D2)
+
+Conditional statement that checks if either cell C2 or D2 is blank. If either of these cells is blank, the formula returns the value from cell B2; otherwise, it returns an empty string ("").
+=IF(OR(ISBLANK(C2),ISBLANK(D2)),B2,"")
+
+Replaces non-breaking space characters (character code 160) in the content of cell A1 with regular space characters, and then trimming any excess leading or trailing spaces.
+=TRIM(SUBSTITUTE(A1, CHAR(160), " "))
+
+
