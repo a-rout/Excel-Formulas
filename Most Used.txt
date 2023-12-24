@@ -1,7 +1,10 @@
+Removes both periods and replaces commas with periods in the content of cell A1, effectively cleaning the data for numeric formatting.
 =SUBSTITUTE(SUBSTITUTE(A1,".",""),",",".")
 
+Concatenate non-blank values in the range B2:B33 with a comma (",") only if the corresponding cells in both C2:C33 and D2:D33 are blank. The TEXTJOIN function then combines these values into a single text string.
 =TEXTJOIN("", TRUE, IF((C2:C33 = "") * (D2:D33 = ""), B2:B33 & ",", ""))
 
+Conditional statement that checks whether the sum of the values in cells C2 and D2 equals zero. If the sum is zero, the formula returns an empty string (""); otherwise, it returns the sum of C2 and D2.
 =IF(C2+D2 = 0, "", C2+D2)
 
 Conditional statement that checks if either cell C2 or D2 is blank. If either of these cells is blank, the formula returns the value from cell B2; otherwise, it returns an empty string ("").
@@ -9,5 +12,3 @@ Conditional statement that checks if either cell C2 or D2 is blank. If either of
 
 Replaces non-breaking space characters (character code 160) in the content of cell A1 with regular space characters, and then trimming any excess leading or trailing spaces.
 =TRIM(SUBSTITUTE(A1, CHAR(160), " "))
-
-
